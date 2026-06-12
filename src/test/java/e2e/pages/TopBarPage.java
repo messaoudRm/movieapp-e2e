@@ -17,7 +17,7 @@ public class TopBarPage extends BasePage{
         click(THEME_TOGGLE);
     }
 
-    public void openMenu() {
+    public void openCloseMenu() {
         click(MENU_TOGGLE);
     }
 

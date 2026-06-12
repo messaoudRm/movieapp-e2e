@@ -17,15 +17,28 @@ public abstract class BasePage {
     }
 
     protected void click(By locator) {
+        waits();
         waiter.until(
                 ExpectedConditions.elementToBeClickable(locator)
         ).click();
     }
 
     protected void type(By locator, String text) {
+        waits();
         WebElement element = waiter.until(
                 ExpectedConditions.visibilityOfElementLocated(locator)
         );
+        element.clear();
         element.sendKeys(text);
     }
+
+    protected void waits() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+
 }
